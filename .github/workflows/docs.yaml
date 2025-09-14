@@ -30,7 +30,14 @@ jobs:
       # Build Coverage Report
       - name: Build Coverage Report
         run: nix develop --command bash -c "pnpm i && pnpm run coverage"
-      # Move Vitest UI Report
+
+      # Check is exists
+      - name: Check if ./products/backend/html/ exists
+        run: cd ./products/backend/ && ls -la
+      - name: Check if ./products/frontend/html/ exists
+        run: cd ./products/frontend/ && ls -la
+
+        # Move Vitest UI Report
       - name: Move Vitest UI Report (backend)
         run: mv ./products/backend/html/ ./docs/dist/vitest/backend/
       - name: Move Vitest UI Report (frontend)
