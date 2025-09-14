@@ -18,12 +18,12 @@
 [Details Here](https://github.com/Myxogastria0808/debt-manager/products/frontend/README.md)
 - https://github.com/Myxogastria0808/debt-manager/products/frontend/README.md
 
-- Vitest UI Report
+#### Vitest UI Report
 
 [Vitest UI Report](https://myxogastria0808.github.io/debt-manager/vitest/frontend/)
 - https://myxogastria0808.github.io/debt-manager/vitest/frontend/
 
-- Coverage Report
+#### Coverage Report
 
 [Coverage Report](https://myxogastria0808.github.io/debt-manager/coverage/frontend/)
 - https://myxogastria0808.github.io/debt-manager/coverage/frontend/
@@ -41,12 +41,12 @@
 [Details Here](https://github.com/Myxogastria0808/debt-manager/products/backend/README.md)
 - https://github.com/Myxogastria0808/debt-manager/products/backend/README.md
 
-- Vitest UI Report
+#### Vitest UI Report
 
 [Vitest UI Report](https://myxogastria0808.github.io/debt-manager/vitest/backend/)
 - https://myxogastria0808.github.io/debt-manager/vitest/backend/
 
-- Coverage Report
+#### Coverage Report
 
 [Coverage Report](https://myxogastria0808.github.io/debt-manager/coverage/backend/)
 - https://myxogastria0808.github.io/debt-manager/coverage/backend/
