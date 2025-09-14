@@ -1,10 +1,10 @@
 # debt-manager
 
-## 使用する技術スタック
+## Technology stack used
 
-`frontend`、`backend`、`database`の単位でDocker化し、docker-composeで連携する。
+Dockerize each component as `frontend`, `backend`, and `database`, and coordinate them using Docker Compose.
 
-また、debt-managerは、pnpmのworkspace機能を利用して、`frontend`、`backend`の2つのプロダクトで構成されている。
+Additionally, debt-manager utilizes pnpm's workspace feature and consists of two products, `frontend` and `backend`, along with `docs`.
 
 ### Frontend
 
