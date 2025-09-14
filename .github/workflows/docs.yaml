@@ -24,25 +24,13 @@ jobs:
       # Test debt-manager
       - name: Test debt-manager
         run: nix develop --command bash -c "pnpm run test"
-
-      # Check is exists
-      - name: Check if ./docs/ exists
-        run: cd ./docs/ && ls -la
-
       # Build Vitest UI Report
       - name: Build Vitest UI Report
         run: nix develop --command bash -c "pnpm i && pnpm run ui"
       # Build Coverage Report
       - name: Build Coverage Report
         run: nix develop --command bash -c "pnpm i && pnpm run coverage"
-
-      # Check is exists
-      - name: Check if ./products/backend/html/ exists
-        run: cd ./products/backend/ && ls -la
-      - name: Check if ./products/frontend/html/ exists
-        run: cd ./products/frontend/ && ls -la
-
-        # Move Vitest UI Report
+      # Move Vitest UI Report
       - name: Move Vitest UI Report (backend)
         run: |
           mkdir -p ./docs/dist/vitest/backend/
