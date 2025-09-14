@@ -1,0 +1,25 @@
+{
+  "name": "backend",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "tsx watch src/index.ts",
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "test": "vitest run --typecheck",
+    "coverage": "vitest run --coverage --typecheck",
+    "ui": "vitest run --ui --typecheck"
+  },
+  "dependencies": {
+    "@hono/node-server": "catalog:backend",
+    "hono": "catalog:backend"
+  },
+  "devDependencies": {
+    "@types/node": "catalog:backend",
+    "@vitest/coverage-v8": "catalog:",
+    "@vitest/ui": "catalog:",
+    "tsx": "catalog:backend",
+    "typescript": "catalog:",
+    "vitest": "catalog:"
+  }
+}

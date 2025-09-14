@@ -1,2 +1,38 @@
-# Nix
+# nix
 /.direnv
+
+# deps
+node_modules/
+
+# prod
+dist/
+
+# misc
+.DS_Store
+
+# env
+.env
+
+# logs
+logs/
+*.log
+pnpm-debug.log*
+lerna-debug.log*
+
+# ides
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# turbo
+.turbo/
+
+# vitest
+html/
+coverage/
+
+# astro
+.astro/
