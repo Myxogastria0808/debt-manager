@@ -12,17 +12,17 @@
 - CSS Modules
 - Vite + React
 
-[product here](https://github.com/Myxogastria0808/debt-manager/products/frontend/)
+[Product Here](https://github.com/Myxogastria0808/debt-manager/products/frontend/) (https://github.com/Myxogastria0808/debt-manager/products/frontend/)
 
-[details here](https://github.com/Myxogastria0808/debt-manager/products/frontend/README.md)
+[Details Here](https://github.com/Myxogastria0808/debt-manager/products/frontend/README.md) (https://github.com/Myxogastria0808/debt-manager/products/frontend/README.md)
 
 - Vitest UI Report
 
-[Vitest UI Report](https://myxogastria0808.github.io/debt-manager/vitest/frontend/)
+[Vitest UI Report](https://myxogastria0808.github.io/debt-manager/vitest/frontend/) (https://myxogastria0808.github.io/debt-manager/vitest/frontend/)
 
 - Coverage Report
 
-[Coverage Report](https://myxogastria0808.github.io/debt-manager/coverage/frontend/)
+[Coverage Report](https://myxogastria0808.github.io/debt-manager/coverage/frontend/) (https://myxogastria0808.github.io/debt-manager/coverage/frontend/)
 
 ### Backend
 
@@ -31,17 +31,17 @@
 - fetch API (for calling Webhook)
 - Prisma (ORM)
 
-[product here](https://github.com/Myxogastria0808/debt-manager/products/backend/)
+[Product Here](https://github.com/Myxogastria0808/debt-manager/products/backend/) (https://github.com/Myxogastria0808/debt-manager/products/backend/)
 
-[details here](https://github.com/Myxogastria0808/debt-manager/products/backend/README.md)
+[Details Here](https://github.com/Myxogastria0808/debt-manager/products/backend/README.md) (https://github.com/Myxogastria0808/debt-manager/products/backend/README.md)
 
 - Vitest UI Report
 
-[Vitest UI Report](https://myxogastria0808.github.io/debt-manager/vitest/backend/)
+[Vitest UI Report](https://myxogastria0808.github.io/debt-manager/vitest/backend/) (https://myxogastria0808.github.io/debt-manager/vitest/backend/)
 
 - Coverage Report
 
-[Coverage Report](https://myxogastria0808.github.io/debt-manager/coverage/backend/)
+[Coverage Report](https://myxogastria0808.github.io/debt-manager/coverage/backend/) (https://myxogastria0808.github.io/debt-manager/coverage/backend/)
 
 ### Database
 
@@ -51,15 +51,15 @@
 
 - Astro
 
-[docs here](https://github.com/Myxogastria0808/debt-manager/docs/)
+[Docs Here](https://github.com/Myxogastria0808/debt-manager/docs/) (https://github.com/Myxogastria0808/debt-manager/docs/)
 
-[details here](https://github.com/Myxogastria0808/debt-manager/docs/README.md)
+[Details Here](https://github.com/Myxogastria0808/debt-manager/docs/README.md) (https://github.com/Myxogastria0808/debt-manager/docs/README.md)
 
 ## CI/CD
 
 - GitHub Actions with Nix
 
-[CI/CD here](https://github.com/Myxogastria0808/debt-manager/.github/workflows/)
+[CI/CD Here](https://github.com/Myxogastria0808/debt-manager/.github/workflows/) (https://github.com/Myxogastria0808/debt-manager/.github/workflows/)
 
 ## Testing Tool
 
