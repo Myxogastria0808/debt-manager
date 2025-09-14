@@ -18,12 +18,28 @@ jobs:
         uses: cachix/install-nix-action@v31
         with:
           nix_path: nixpkgs=channel:nixpkgs-unstable
-      # Check Astro
-      - name: Check Astro
-        run: nix develop --command bash -c "pnpm i && pnpm run docs:check"
-      # Build Astro
-      - name: Build Astro
-        run: nix develop --command bash -c "pnpm i && pnpm run docs:build"
+      # Build debt-manager (include docs)
+      - name: Build debt-manager (include docs)
+        run: nix develop --command bash -c "pnpm i && pnpm run build"
+      # Test debt-manager
+      - name: Test debt-manager
+        run: nix develop --command bash -c "pnpm run test"
+      # Build Vitest UI Report
+      - name: Build Vitest UI Report
+        run: nix develop --command bash -c "pnpm i && pnpm run ui"
+      # Build Coverage Report
+      - name: Build Coverage Report
+        run: nix develop --command bash -c "pnpm i && pnpm run coverage"
+      # Move Vitest UI Report
+      - name: Move Vitest UI Report (backend)
+        run: mv ./products/backend/html/ ./docs/dist/vitest/backend/
+      - name: Move Vitest UI Report (frontend)
+        run: mv ./products/frontend/html/ ./docs/dist/vitest/frontend/
+      # Move Coverage Report
+      - name: Move Coverage Report (backend)
+        run: mv ./products/backend/coverage/ ./docs/dist/coverage/backend/
+      - name: Move Coverage Report (frontend)
+        run: mv ./products/frontend/coverage/ ./docs/dist/coverage/frontend/
       # Deploy to GitHub Pages
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4

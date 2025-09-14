@@ -142,15 +142,12 @@ flowchart LR
 #### with `loose checks` (`dev branch`)
 
 - dev-test (`push` and `pull requests`)
-- docs-test (`push` and `pull requests`)
 - docs (`push`)
 
 #### with `strict checks` (`main branch`)
 
 - prod-test (`pull requests`)
-- docs-test (`pull requests`)
 
 #### with `strict checks (cron)` (`main branch`)
 
 - prod-test (`cron`)
-- docs-test (`cron`)

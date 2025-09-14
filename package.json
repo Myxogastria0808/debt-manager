@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "description": "This product is a debt management service for Discord and Slack.",
   "scripts": {
+    "lint": "turbo run lint",
     "build": "turbo run build",
     "test": "turbo run test",
     "ui": "turbo run ui",

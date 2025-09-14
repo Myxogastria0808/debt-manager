@@ -6,7 +6,15 @@ import tseslint from 'typescript-eslint'
 import { globalIgnores } from 'eslint/config'
 
 export default tseslint.config([
-  globalIgnores(['dist']),
+  globalIgnores([
+    'dist',
+    '.turbo/',
+    'coverage',
+    'dist',
+    'html',
+    'node_modules',
+    'public',
+  ]),
   {
     files: ['**/*.{ts,tsx}'],
     extends: [
