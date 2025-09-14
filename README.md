@@ -35,7 +35,7 @@
 - fetch API (for calling Webhook)
 - Prisma (ORM)
 
-[Product Here](https://github.com/Myxogastria0808/debt-manager/products/backend/)\
+[Product Here](https://github.com/Myxogastria0808/debt-manager/products/backend/)
 - https://github.com/Myxogastria0808/debt-manager/products/backend/
 
 [Details Here](https://github.com/Myxogastria0808/debt-manager/products/backend/README.md)
