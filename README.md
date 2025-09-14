@@ -16,6 +16,14 @@
 
 [details here](https://github.com/Myxogastria0808/debt-manager/products/frontend/README.md)
 
+- Vitest UI Report
+
+[Vitest UI Report](https://myxogastria0808.github.io/debt-manager/vitest/frontend/)
+
+- Coverage Report
+
+[Coverage Report](https://myxogastria0808.github.io/debt-manager/coverage/frontend/)
+
 ### Backend
 
 - TypeScript
@@ -26,6 +34,14 @@
 [product here](https://github.com/Myxogastria0808/debt-manager/products/backend/)
 
 [details here](https://github.com/Myxogastria0808/debt-manager/products/backend/README.md)
+
+- Vitest UI Report
+
+[Vitest UI Report](https://myxogastria0808.github.io/debt-manager/vitest/backend/)
+
+- Coverage Report
+
+[Coverage Report](https://myxogastria0808.github.io/debt-manager/coverage/backend/)
 
 ### Database
 
@@ -43,6 +59,8 @@
 
 - GitHub Actions with Nix
 
+[CI/CD here](https://github.com/Myxogastria0808/debt-manager/.github/workflows/)
+
 ## Testing Tool
 
 - Vitest
@@ -53,7 +71,7 @@
 > This project only use pnpm (not yarn, npm or bun).
 
 - pnpm (with workspace feature)
-- turborepo (monorepo management tool)
+- turbo (monorepo management tool)
 - Nix (optional tool)
 
 ## 全体構成図
