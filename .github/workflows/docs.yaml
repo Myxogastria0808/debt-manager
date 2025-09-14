@@ -48,6 +48,9 @@ jobs:
         run: |
           mkdir -p ./docs/dist/coverage/frontend/
           mv ./products/frontend/coverage/* ./docs/dist/coverage/frontend/
+      # Move _config.yml
+      - name: Move _config.yml
+        run: mv ./docs/_config.yml ./docs/dist/_config.yml
       # Deploy to GitHub Pages
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
