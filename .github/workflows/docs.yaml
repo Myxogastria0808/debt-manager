@@ -34,20 +34,20 @@ jobs:
       - name: Move Vitest UI Report (backend)
         run: |
           mkdir -p ./docs/dist/vitest/backend/
-          mv ./products/backend/html/ ./docs/dist/vitest/backend/
+          mv ./products/backend/html/* ./docs/dist/vitest/backend/
       - name: Move Vitest UI Report (frontend)
         run: |
           mkdir -p ./docs/dist/vitest/frontend/
-          mv ./products/frontend/html/ ./docs/dist/vitest/frontend/
+          mv ./products/frontend/html/* ./docs/dist/vitest/frontend/
       # Move Coverage Report
       - name: Move Coverage Report (backend)
         run: |
           mkdir -p ./docs/dist/coverage/backend/
-          mv ./products/backend/coverage/ ./docs/dist/coverage/backend/
+          mv ./products/backend/coverage/* ./docs/dist/coverage/backend/
       - name: Move Coverage Report (frontend)
         run: |
           mkdir -p ./docs/dist/coverage/frontend/
-          mv ./products/frontend/coverage/ ./docs/dist/coverage/frontend/
+          mv ./products/frontend/coverage/* ./docs/dist/coverage/frontend/
       # Deploy to GitHub Pages
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
