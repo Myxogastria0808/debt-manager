@@ -3,7 +3,6 @@
 ## Technology stack used
 
 Dockerize each component as `frontend`, `backend`, and `database`, and coordinate them using Docker Compose.
-
 Additionally, debt-manager utilizes pnpm's workspace feature and consists of two products, `frontend` and `backend`, along with `docs`.
 
 ### Frontend
