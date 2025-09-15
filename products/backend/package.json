@@ -18,6 +18,7 @@
     "@types/node": "catalog:backend",
     "@vitest/coverage-v8": "catalog:",
     "@vitest/ui": "catalog:",
+    "prettier": "catalog:",
     "tsx": "catalog:backend",
     "typescript": "catalog:",
     "vitest": "catalog:"
