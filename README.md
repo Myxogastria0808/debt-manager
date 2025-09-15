@@ -118,7 +118,7 @@ https://myxogastria0808.github.io/debt-manager/
 - turbo (monorepo management tool)
 - Nix (optional tool)
 
-## System Diagram ~Development~
+## System Diagram ~ Development ~
 
 ```mermaid
 graph LR;
@@ -143,7 +143,7 @@ graph LR;
     workspace(["Workspace (Slack)"]) --notification--> user["User"]
 ```
 
-## System Diagram ~Production~
+## System Diagram ~ Production ~
 
 ```mermaid
 graph LR;
