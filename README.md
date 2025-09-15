@@ -40,7 +40,7 @@ https://myxogastria0808.github.io/debt-manager/
 - TypeScript
 - Hono (Web Framework)
 - fetch API (for calling Webhook)
-- Prisma (ORM)
+- Drizzle (ORM)
 
 #### [Live Demo](https://debt-manager-api.yukiosada.work/)
 - https://debt-manager-api.yukiosada.work/
@@ -60,7 +60,7 @@ https://myxogastria0808.github.io/debt-manager/
 ### Database
 
 - development
-  - PostgreSQL (Docker)
+  - SQLite
 - production
   - Cloudflare D1
 
@@ -98,14 +98,11 @@ https://myxogastria0808.github.io/debt-manager/
 
 ```mermaid
 graph LR;
-    subgraph "Database (Docker)"
-        db[("PostgreSQL")]
-    end
-    db[("PostgreSQL")] <--> prisma["Prisma (ORM)"]
+    db[("SQLite")] <--> drizzle["Drizzle (ORM)"]
     subgraph "Backend (Localhost)"
-        prisma["Prisma (ORM)"] <--> hono["Hono (Web API)"]
-        prisma["Prisma (ORM)"] <--> discord["Discord Webhook"]
-        prisma["Prisma (ORM)"] <--> slack["Slack Webhook"]
+        drizzle["Drizzle (ORM)"] <--> hono["Hono (Web API)"]
+        drizzle["Drizzle (ORM)"] <--> discord["Discord Webhook"]
+        drizzle["Drizzle (ORM)"] <--> slack["Slack Webhook"]
     end
     hono["Hono (Web API)"] <--> frontend["Vite + React"]
     subgraph "Frontend (Localhost)"
@@ -126,11 +123,11 @@ graph LR;
 
 ```mermaid
 graph LR;
-    db[("Database (Cloudflare D1)")] <--> prisma["Prisma (ORM)"]
+    db[("Database (Cloudflare D1)")] <--> drizzle["Drizzle (ORM)"]
     subgraph "Backend (Cloudflare Workers)"
-        prisma["Prisma (ORM)"] <--> hono["Hono (Web API)"]
-        prisma["Prisma (ORM)"] <--> discord["Discord Webhook"]
-        prisma["Prisma (ORM)"] <--> slack["Slack Webhook"]
+        drizzle["Drizzle (ORM)"] <--> hono["Hono (Web API)"]
+        drizzle["Drizzle (ORM)"] <--> discord["Discord Webhook"]
+        drizzle["Drizzle (ORM)"] <--> slack["Slack Webhook"]
     end
     hono["Hono (Web API)"] <--> frontend["Vite + React"]
     subgraph "Frontend (Cloudflare Workers)"
