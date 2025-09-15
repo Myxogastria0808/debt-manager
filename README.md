@@ -212,6 +212,8 @@ flowchart LR
 
 - test (`pull requests`)
 - CodeQL Scanning (`pull requests`)
+- deploy-frontend (`push` and `pull requests`)
+- deploy-backend (`push` and `pull requests`)
 
 #### with `strict checks (cron)` (`main branch`)
 
