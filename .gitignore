@@ -6,12 +6,15 @@ node_modules/
 
 # prod
 dist/
+.wrangler/
 
 # misc
 .DS_Store
 
 # env
 .env
+.env.production
+.dev.vars
 
 # logs
 logs/
@@ -19,7 +22,7 @@ logs/
 pnpm-debug.log*
 lerna-debug.log*
 
-# ides
+# idea
 .idea/
 *.suo
 *.ntvs*
