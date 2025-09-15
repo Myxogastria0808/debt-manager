@@ -1,5 +1,12 @@
 # debt-manager
 
+[![Test](https://github.com/Myxogastria0808/debt-manager/actions/workflows/test.yaml/badge.svg)](https://github.com/Myxogastria0808/debt-manager/actions/workflows/test.yaml)
+[![Docs](https://github.com/Myxogastria0808/debt-manager/actions/workflows/docs.yaml/badge.svg)](https://github.com/Myxogastria0808/debt-manager/actions/workflows/docs.yaml)
+![GitHub Release](https://img.shields.io/github/v/release/Myxogastria0808/debt-manager)
+![GitHub License](https://img.shields.io/github/license/Myxogastria0808/debt-manager)
+![Vitest](https://img.shields.io/badge/-vitest-6e9f18?style=flat&logo=vitest&logoColor=ffffff)
+[![RenovateBot](https://img.shields.io/badge/RenovateBot-1A1F6C?logo=renovate&logoColor=fff)](#)
+
 ## Documentation
 
 https://myxogastria0808.github.io/debt-manager/
@@ -194,13 +201,14 @@ flowchart LR
 
 #### with `loose checks` (`dev branch`)
 
-- dev-test (`push` and `pull requests`)
+- test (`push` and `pull requests`)
 - docs (`push`)
 
 #### with `strict checks` (`main branch`)
 
-- prod-test (`pull requests`)
+- test (`pull requests`)
+- CodeQL Scanning (`pull requests`)
 
 #### with `strict checks (cron)` (`main branch`)
 
-- prod-test (`cron`)
+- test (`cron`)

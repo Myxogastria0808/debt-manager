@@ -1,14 +1,16 @@
-name: dev-test
+name: test
 
 on:
+  schedule:
+    - cron: "0 0 * * 0"
   push:
     branches: ['dev']
   pull_request:
-    branches: ['dev']
+    branches: ['dev', 'main']
   workflow_dispatch:
 
 jobs:
-  dev-test:
+  test:
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -26,3 +28,6 @@ jobs:
       # Test debt-manager
       - name: Test debt-manager
         run: nix develop --command bash -c "pnpm run test"
+      # ESlint Check
+      - name: ESlint Check
+        run: nix develop --command bash -c "pnpm run lint"
