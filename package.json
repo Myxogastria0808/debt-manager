@@ -72,6 +72,8 @@
     "globals": "catalog:frontend",
     "happy-dom": "catalog:frontend",
     "hono": "catalog:backend",
+    "prettier": "catalog:",
+    "prettier-plugin-astro": "catalog:docs",
     "react": "catalog:frontend",
     "react-dom": "catalog:frontend",
     "tsx": "catalog:backend",

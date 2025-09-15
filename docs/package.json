@@ -1,7 +1,6 @@
 {
   "name": "docs",
   "type": "module",
-  "version": "0.0.1",
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
@@ -13,5 +12,9 @@
     "@astrojs/check": "catalog:docs",
     "astro": "catalog:docs",
     "typescript": "catalog:"
+  },
+  "devDependencies": {
+    "prettier": "catalog:",
+    "prettier-plugin-astro": "catalog:docs"
   }
 }
