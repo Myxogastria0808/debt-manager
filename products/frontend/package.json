@@ -12,8 +12,9 @@
     "ui": "vitest run --ui --typecheck"
   },
   "dependencies": {
-    "react": "^19.1.1",
-    "react-dom": "^19.1.1"
+    "react": "catalog:frontend",
+    "react-dom": "catalog:frontend",
+    "react-router": "catalog:frontend"
   },
   "devDependencies": {
     "@eslint/js": "catalog:frontend",
