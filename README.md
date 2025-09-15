@@ -42,8 +42,8 @@ https://myxogastria0808.github.io/debt-manager/
 - fetch API (for calling Webhook)
 - Prisma (ORM)
 
-#### [Live Demo](https://debt-manager-api.yukiosada.work)
-- https://debt-manager-api.yukiosada.work
+#### [Live Demo](https://debt-manager-api.yukiosada.work/)
+- https://debt-manager-api.yukiosada.work/
 
 #### [Source Code](https://github.com/Myxogastria0808/debt-manager/products/backend/)
 - https://github.com/Myxogastria0808/debt-manager/products/backend/
