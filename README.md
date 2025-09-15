@@ -1,6 +1,17 @@
 # debt-manager
 
-## Technology stack used
+[![Test](https://github.com/Myxogastria0808/debt-manager/actions/workflows/test.yaml/badge.svg)](https://github.com/Myxogastria0808/debt-manager/actions/workflows/test.yaml)
+[![Docs](https://github.com/Myxogastria0808/debt-manager/actions/workflows/docs.yaml/badge.svg)](https://github.com/Myxogastria0808/debt-manager/actions/workflows/docs.yaml)
+![GitHub Release](https://img.shields.io/github/v/release/Myxogastria0808/debt-manager)
+![GitHub License](https://img.shields.io/github/license/Myxogastria0808/debt-manager)
+![Vitest](https://img.shields.io/badge/-vitest-6e9f18?style=flat&logo=vitest&logoColor=ffffff)
+[![RenovateBot](https://img.shields.io/badge/RenovateBot-1A1F6C?logo=renovate&logoColor=fff)](#)
+
+## Documentation
+
+https://myxogastria0808.github.io/debt-manager/
+
+## Technology Stack Used
 
 Dockerize each component as `frontend`, `backend`, and `database`, and coordinate them using Docker Compose.
 Additionally, debt-manager utilizes pnpm's workspace feature and consists of two products, `frontend` and `backend`, along with `docs`.
@@ -11,20 +22,16 @@ Additionally, debt-manager utilizes pnpm's workspace feature and consists of two
 - CSS Modules
 - Vite + React
 
-[Product Here](https://github.com/Myxogastria0808/debt-manager/products/frontend/)
+#### [Product](https://github.com/Myxogastria0808/debt-manager/products/frontend/)
 - https://github.com/Myxogastria0808/debt-manager/products/frontend/
 
-[Details Here](https://github.com/Myxogastria0808/debt-manager/products/frontend/README.md)
+#### [Details](https://github.com/Myxogastria0808/debt-manager/products/frontend/README.md)
 - https://github.com/Myxogastria0808/debt-manager/products/frontend/README.md
 
-#### Vitest UI Report
-
-[Vitest UI Report](https://myxogastria0808.github.io/debt-manager/vitest/frontend/)
+#### [Vitest UI Report](https://myxogastria0808.github.io/debt-manager/vitest/frontend/)
 - https://myxogastria0808.github.io/debt-manager/vitest/frontend/
 
-#### Coverage Report
-
-[Coverage Report](https://myxogastria0808.github.io/debt-manager/coverage/frontend/)
+#### [Coverage Report](https://myxogastria0808.github.io/debt-manager/coverage/frontend/)
 - https://myxogastria0808.github.io/debt-manager/coverage/frontend/
 
 ### Backend
@@ -34,41 +41,40 @@ Additionally, debt-manager utilizes pnpm's workspace feature and consists of two
 - fetch API (for calling Webhook)
 - Prisma (ORM)
 
-[Product Here](https://github.com/Myxogastria0808/debt-manager/products/backend/)
+#### [Product](https://github.com/Myxogastria0808/debt-manager/products/backend/)
 - https://github.com/Myxogastria0808/debt-manager/products/backend/
 
-[Details Here](https://github.com/Myxogastria0808/debt-manager/products/backend/README.md)
+#### [Details](https://github.com/Myxogastria0808/debt-manager/products/backend/README.md)
 - https://github.com/Myxogastria0808/debt-manager/products/backend/README.md
 
-#### Vitest UI Report
-
-[Vitest UI Report](https://myxogastria0808.github.io/debt-manager/vitest/backend/)
+#### [Vitest UI Report](https://myxogastria0808.github.io/debt-manager/vitest/backend/)
 - https://myxogastria0808.github.io/debt-manager/vitest/backend/
 
-#### Coverage Report
-
-[Coverage Report](https://myxogastria0808.github.io/debt-manager/coverage/backend/)
+#### [Coverage Report](https://myxogastria0808.github.io/debt-manager/coverage/backend/)
 - https://myxogastria0808.github.io/debt-manager/coverage/backend/
 
 ### Database
 
-- PostgreSQL (RDBMS)
+- development
+  - PostgreSQL (Docker)
+- production
+  - Cloudflare D1
 
 ### Docs
 
 - Astro
 
-[Docs Here](https://github.com/Myxogastria0808/debt-manager/docs/)
+#### [Docs](https://github.com/Myxogastria0808/debt-manager/docs/)
 - https://github.com/Myxogastria0808/debt-manager/docs/
 
-[Details Here](https://github.com/Myxogastria0808/debt-manager/docs/README.md)
+#### [Details](https://github.com/Myxogastria0808/debt-manager/docs/README.md)
 - https://github.com/Myxogastria0808/debt-manager/docs/README.md
 
 ## CI/CD
 
 - GitHub Actions with Nix
 
-[CI/CD Here](https://github.com/Myxogastria0808/debt-manager/.github/workflows/)
+#### [CI/CD](https://github.com/Myxogastria0808/debt-manager/.github/workflows/)
 - https://github.com/Myxogastria0808/debt-manager/.github/workflows/
 
 ## Testing Tool
@@ -195,13 +201,14 @@ flowchart LR
 
 #### with `loose checks` (`dev branch`)
 
-- dev-test (`push` and `pull requests`)
+- test (`push` and `pull requests`)
 - docs (`push`)
 
 #### with `strict checks` (`main branch`)
 
-- prod-test (`pull requests`)
+- test (`pull requests`)
+- CodeQL Scanning (`pull requests`)
 
 #### with `strict checks (cron)` (`main branch`)
 
-- prod-test (`cron`)
+- test (`cron`)
