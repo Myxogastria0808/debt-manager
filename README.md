@@ -1,4 +1,4 @@
-# debt-manager
+# debt-manager (not released yet)
 
 [![Test](https://github.com/Myxogastria0808/debt-manager/actions/workflows/test.yaml/badge.svg)](https://github.com/Myxogastria0808/debt-manager/actions/workflows/test.yaml)
 [![Docs](https://github.com/Myxogastria0808/debt-manager/actions/workflows/docs.yaml/badge.svg)](https://github.com/Myxogastria0808/debt-manager/actions/workflows/docs.yaml)
