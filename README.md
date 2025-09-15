@@ -1,5 +1,7 @@
 # debt-manager
 
+This tag is for not release version.
+
 [![Test](https://github.com/Myxogastria0808/debt-manager/actions/workflows/test.yaml/badge.svg)](https://github.com/Myxogastria0808/debt-manager/actions/workflows/test.yaml)
 [![Docs](https://github.com/Myxogastria0808/debt-manager/actions/workflows/docs.yaml/badge.svg)](https://github.com/Myxogastria0808/debt-manager/actions/workflows/docs.yaml)
 ![GitHub Release](https://img.shields.io/github/v/release/Myxogastria0808/debt-manager)
