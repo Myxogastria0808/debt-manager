@@ -11,10 +11,8 @@ catalog:
 
 catalogs:
   backend:
-    '@hono/node-server': ^1.19.2
-    '@types/node': ^24.4.0
     hono: ^4.9.7
-    tsx: ^4.20.5
+    wrangler: ^4.4.0
   docs:
     '@astrojs/check': ^0.9.4
     astro: ^5.13.7
