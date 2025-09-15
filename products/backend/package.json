@@ -5,16 +5,20 @@
   "scripts": {
     "dev": "wrangler dev",
     "build": "tsc",
-    "deploy": "wrangler deploy --minify",
-    "cf-typegen": "wrangler types --env-interface CloudflareBindings",
+    "generate": "drizzle-kit generate",
+    "local:migration": "wrangler d1 migrations apply debt-manager --local",
+    "remote:migration": "wrangler d1 migrations apply debt-manager --remote --config wrangler.production.jsonc",
     "test": "vitest run --typecheck",
     "coverage": "vitest run --coverage --typecheck",
     "ui": "vitest run --ui --typecheck"
   },
   "dependencies": {
+    "drizzle-orm": "catalog:backend",
     "hono": "catalog:backend"
   },
   "devDependencies": {
-    "wrangler": "catalog:backend"
+    "drizzle-kit": "catalog:backend",
+    "wrangler": "catalog:backend",
+    "@cloudflare/workers-types": "catalog:backend"
   }
 }

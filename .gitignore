@@ -1,6 +1,9 @@
 # nix
 /.direnv
 
+# drizzle
+migrations/
+
 # deps
 node_modules/
 
@@ -39,3 +42,6 @@ coverage/
 
 # astro
 .astro/
+
+# wrangler
+wrangler.production.jsonc

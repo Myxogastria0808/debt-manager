@@ -7,6 +7,30 @@
 ![Vitest](https://img.shields.io/badge/-vitest-6e9f18?style=flat&logo=vitest&logoColor=ffffff)
 [![RenovateBot](https://img.shields.io/badge/RenovateBot-1A1F6C?logo=renovate&logoColor=fff)](#)
 
+## Setup
+
+0. prepare some tools
+
+- Node.js
+- pnpm
+- vscode extensions
+  - `astro-build.astro-vscode`
+  - `esbenp.prettier-vscode`
+  - `dbaeumer.vscode-eslint`
+
+1. run under the commands
+
+```sh
+pnpm i && pnpm run backend:generate && pnpm run backend:local:migration
+```
+
+2. input `y` to apply migration
+
+```sh
+✔ About to apply 1 migration(s)
+Your database may not be available to serve requests during the migration, continue? [y/N] y
+```
+
 ## Documentation
 
 https://myxogastria0808.github.io/debt-manager/
