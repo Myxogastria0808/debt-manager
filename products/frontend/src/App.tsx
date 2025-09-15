@@ -1,12 +1,17 @@
-// import styles from './App.css'
+// import styles from './App.module.css'
+import type { FC } from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router';
+import { NotFound, Root } from './routes';
 
-const App = () => {
-
+const App: FC = () => {
   return (
-    <>
-      <h1>Hello, World!</h1>
-    </>
-  )
-}
+    <Router>
+      <Routes>
+        <Route path="/" element={<Root />} />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+    </Router>
+  );
+};
 
-export default App
+export default App;

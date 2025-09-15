@@ -13,14 +13,15 @@ https://myxogastria0808.github.io/debt-manager/
 
 ## Technology Stack Used
 
-Dockerize each component as `frontend`, `backend`, and `database`, and coordinate them using Docker Compose.
-Additionally, debt-manager utilizes pnpm's workspace feature and consists of two products, `frontend` and `backend`, along with `docs`.
-
 ### Frontend
 
 - TypeScript
 - CSS Modules
 - Vite + React
+- React Router (for routing)
+
+#### [Live Demo](https://debt-manager.yukiosada.work/)
+- https://debt-manager.yukiosada.work/
 
 #### [Product](https://github.com/Myxogastria0808/debt-manager/products/frontend/)
 - https://github.com/Myxogastria0808/debt-manager/products/frontend/

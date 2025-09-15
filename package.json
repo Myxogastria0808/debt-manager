@@ -76,6 +76,7 @@
     "prettier-plugin-astro": "catalog:docs",
     "react": "catalog:frontend",
     "react-dom": "catalog:frontend",
+    "react-router": "catalog:frontend",
     "tsx": "catalog:backend",
     "turbo": "catalog:root",
     "typescript": "catalog:",
