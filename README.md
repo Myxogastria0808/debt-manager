@@ -84,21 +84,21 @@ Additionally, debt-manager utilizes pnpm's workspace feature and consists of two
 - turbo (monorepo management tool)
 - Nix (optional tool)
 
-## 全体構成図
+## System Diagram ~Development~
 
 ```mermaid
 graph LR;
-    subgraph Database
-    db["PostgreSQL"]
+    subgraph "Database (Docker)"
+        db[("PostgreSQL")]
     end
-    db["PostgreSQL"] <--> prisma["Prisma (ORM)"]
-    subgraph Backend
+    db[("PostgreSQL")] <--> prisma["Prisma (ORM)"]
+    subgraph "Backend (Localhost)"
         prisma["Prisma (ORM)"] <--> hono["Hono (Web API)"]
         prisma["Prisma (ORM)"] <--> discord["Discord Webhook"]
         prisma["Prisma (ORM)"] <--> slack["Slack Webhook"]
     end
     hono["Hono (Web API)"] <--> frontend["Vite + React"]
-    subgraph Frontend
+    subgraph "Frontend (Localhost)"
         frontend["Vite + React"]
     end
     idp{{"Identity Provider (Google, GitHub, etc.)"}} <-.authentication.-> user["User"]
@@ -112,9 +112,35 @@ graph LR;
     workspace(["Workspace (Slack)"]) --notification--> user["User"]
 ```
 
-## Project構成
+## System Diagram ~Production~
 
-## ER図
+```mermaid
+graph LR;
+    db[("Database (Cloudflare D1)")] <--> prisma["Prisma (ORM)"]
+    subgraph "Backend (Cloudflare Workers)"
+        prisma["Prisma (ORM)"] <--> hono["Hono (Web API)"]
+        prisma["Prisma (ORM)"] <--> discord["Discord Webhook"]
+        prisma["Prisma (ORM)"] <--> slack["Slack Webhook"]
+    end
+    hono["Hono (Web API)"] <--> frontend["Vite + React"]
+    subgraph "Frontend (Cloudflare Workers)"
+        frontend["Vite + React"]
+    end
+    idp{{"Identity Provider (Google, GitHub, etc.)"}} <-.authentication.-> user["User"]
+    idp{{"Identity Provider (Google, GitHub, etc.)"}} <--check token--> hono["Hono (Web API)"]
+    frontend["Vite + React"] -.redirect.-> idp{{"Identity Provider (Google, GitHub, etc.)"}}
+    user["User"] <--with token--> frontend["Vite + React"]
+    user["User"] -.without token.-> frontend["Vite + React"]
+    discord["Discord Webhook"] --notification--> server(["Server (Discord)"])
+    slack["Slack Webhook"] --notification--> workspace(["Workspace (Slack)"])
+    server(["Server (Discord)"]) --notification--> user["User"]
+    workspace(["Workspace (Slack)"]) --notification--> user["User"]
+```
+
+## Entity Relationship Diagram (ER Diagram)
+
+```mermaid
+```
 
 ## Branch Strategy
 
