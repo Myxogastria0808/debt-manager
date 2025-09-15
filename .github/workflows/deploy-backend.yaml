@@ -1,0 +1,24 @@
+name: deploy-backend
+
+on:
+  push:
+    branches: ['main']
+  pull_request:
+    branches: ['main']
+  workflow_dispatch:
+
+jobs:
+  deploy-backend:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+      # Build Check debt-manager
+      - name: Build Check debt-manager
+        run: nix develop --command bash -c "pnpm i && pnpm run build"
+      # Build & Deploy Backend to Cloudflare Workers
+      - name: Build & Deploy Worker
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          workingDirectory: "products/backend"
