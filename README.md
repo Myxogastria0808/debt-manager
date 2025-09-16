@@ -55,11 +55,11 @@ https://myxogastria0808.github.io/debt-manager/
 #### [Live Demo](https://debt-manager.yukiosada.work/)
 - https://debt-manager.yukiosada.work/
 
-#### [Source Code](https://github.com/Myxogastria0808/debt-manager/products/frontend/)
-- https://github.com/Myxogastria0808/debt-manager/products/frontend/
+#### [Source Code](https://github.com/Myxogastria0808/debt-manager/tree/dev/products/frontend/)
+- https://github.com/Myxogastria0808/debt-manager/tree/dev/products/frontend/
 
-#### [Details](https://github.com/Myxogastria0808/debt-manager/products/frontend/README.md)
-- https://github.com/Myxogastria0808/debt-manager/products/frontend/README.md
+#### [Details](https://github.com/Myxogastria0808/debt-manager/tree/dev/products/frontend/README.md)
+- https://github.com/Myxogastria0808/debt-manager/tree/dev/products/frontend/README.md
 
 #### [Vitest UI Report](https://myxogastria0808.github.io/debt-manager/vitest/frontend/)
 - https://myxogastria0808.github.io/debt-manager/vitest/frontend/
