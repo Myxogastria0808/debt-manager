@@ -7,9 +7,9 @@
 ![Vitest](https://img.shields.io/badge/-vitest-6e9f18?style=flat&logo=vitest&logoColor=ffffff)
 [![RenovateBot](https://img.shields.io/badge/RenovateBot-1A1F6C?logo=renovate&logoColor=fff)](#)
 
-## Setup
+## セットアップ
 
-0. prepare some tools
+0. いくつかのツールをインストール
 
 - Node.js
 - pnpm
@@ -18,24 +18,32 @@
   - `esbenp.prettier-vscode`
   - `dbaeumer.vscode-eslint`
 
-1. run under the commands
+
+1. このレポジトリをクローン
+
+```sh
+git clone https://github.com/Myxogastria0808/debt-manager.git
+cd debt-manager
+```
+
+2. 以下のコマンドを実行
 
 ```sh
 pnpm i && pnpm run backend:generate && pnpm run backend:local:migration
 ```
 
-2. input `y` to apply migration
+3. `y`を入力してEnterを押す
 
 ```sh
 ✔ About to apply 1 migration(s)
 Your database may not be available to serve requests during the migration, continue? [y/N] y
 ```
 
-## Documentation
+## ドキュメント
 
 https://myxogastria0808.github.io/debt-manager/
 
-## Technology Stack Used
+## 技術スタック
 
 ### Frontend
 
@@ -105,20 +113,20 @@ https://myxogastria0808.github.io/debt-manager/
 #### [CI/CD](https://github.com/Myxogastria0808/debt-manager/.github/workflows/)
 - https://github.com/Myxogastria0808/debt-manager/.github/workflows/
 
-## Testing Tool
+## テストツール
 
 - Vitest
 
-## Management Tool
+## 開発ツール
 
 > [!WARNING]
-> This project only use pnpm (not yarn, npm or bun).
+> このプロジェクトは、 pnpmのみサポートしています。 npmやyarnなどはサポートしていません。
 
 - pnpm (with workspace feature)
 - turbo (monorepo management tool)
 - Nix (optional tool)
 
-## System Diagram ~ Development ~
+## システム構成図 ~ 開発環境 ~
 
 ```mermaid
 graph LR;
@@ -143,7 +151,7 @@ graph LR;
     workspace(["Workspace (Slack)"]) --notification--> user["User"]
 ```
 
-## System Diagram ~ Production ~
+## システム構成図 ~ 本番環境 ~
 
 ```mermaid
 graph LR;
@@ -168,12 +176,12 @@ graph LR;
     workspace(["Workspace (Slack)"]) --notification--> user["User"]
 ```
 
-## Entity Relationship Diagram (ER Diagram)
+## ER図
 
 ```mermaid
 ```
 
-## Branch Strategy
+## ブランチ戦略
 
 ### main
 

@@ -1,56 +1,56 @@
 # debt-manager Backend
 
-## Structure
+## 構造
 
-This structure is inspired by layered architecture.
+この構造は、レイヤードアーキテクチャから着想を得て定義しています。
 
-### handler
+### handler (handler/routeを含む)
 
-Define path routing
+ルーティングの定義を行う
 
-- dependencies
+- 外部依存
   - Hono
 
 ### handler/middleware
 
-Define middleware
+ミドルウェアの定義を行う
 
-- dependencies
+- 外部依存
   - Hono
 
 ### application
 
-Define business logic
+ビジネスロジックの定義を行う
 
-- dependencies
+- 外部依存
 
 ### domain
 
-Define models (not database schemas) and types
+モデル（データベーススキーマではない）と型の定義を行う
 
 ### infrastructure
 
-Define database CRUD operations
+データベースCRUD操作の定義を行う
 
 > [TIPS!]
-> All operations have to be minimal and atomic.
+> 全ての操作は、最小の操作となるように定義する
 
-- dependencies
+- 外部依存
   - Drizzle
 
 ### db
 
-Define database schema
+データベーススキーマの定義を行う
 
-- dependencies
+- 外部依存
   - Drizzle
 
-## Dependencies
+## 依存関係
 
 ```mermaid
 flowchart TD
     subgraph handler
-        route["route"]
+        route["route (include handler/route)"]
         middleware["handler/middleware"]
     end
     application["application"]
@@ -68,27 +68,31 @@ flowchart TD
     infrastructure --> domain
 ```
 
-## Process Flow
+## 処理の流れ
 
 ```mermaid
 flowchart TD
     io[Network IO]
-    handler["handler"]
-    middleware["middleware"]
+    route["route (include handler/route)"]
+    middleware["handler/middleware"]
     application["application"]
     infrastructure["infrastructure"]
     db["db"]
 
-    io --> handler
-    handler --> middleware
-    handler --> application
+    subgraph handler
+        route
+        middleware
+    end
+
+    io --> route
+    route --> io
+    route --> middleware
+    middleware --> route
+    route --> application
+    application --> route
     middleware --> application
     application --> infrastructure
+    infrastructure --> application
     infrastructure --> db
     db --> infrastructure
-    infrastructure --> application
-    application --> middleware
-    application --> handler
-    middleware --> handler
-    handler --> io
 ```
