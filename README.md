@@ -77,11 +77,11 @@ https://myxogastria0808.github.io/debt-manager/
 #### [Live Demo](https://debt-manager-api.yukiosada.work/)
 - https://debt-manager-api.yukiosada.work/
 
-#### [Source Code](https://github.com/Myxogastria0808/debt-manager/products/backend/)
-- https://github.com/Myxogastria0808/debt-manager/products/backend/
+#### [Source Code](https://github.com/Myxogastria0808/debt-manager/tree/dev/products/backend/)
+- https://github.com/Myxogastria0808/debt-manager/tree/dev/products/backend/
 
-#### [Details](https://github.com/Myxogastria0808/debt-manager/products/backend/README.md)
-- https://github.com/Myxogastria0808/debt-manager/products/backend/README.md
+#### [Details](https://github.com/Myxogastria0808/debt-manager/tree/dev/products/backend/README.md)
+- https://github.com/Myxogastria0808/debt-manager/tree/dev/products/backend/README.md
 
 #### [Vitest UI Report](https://myxogastria0808.github.io/debt-manager/vitest/backend/)
 - https://myxogastria0808.github.io/debt-manager/vitest/backend/
@@ -100,18 +100,18 @@ https://myxogastria0808.github.io/debt-manager/
 
 - Astro
 
-#### [Docs](https://github.com/Myxogastria0808/debt-manager/docs/)
-- https://github.com/Myxogastria0808/debt-manager/docs/
+#### [Docs](https://github.com/Myxogastria0808/debt-manager/tree/dev/docs/)
+- https://github.com/Myxogastria0808/debt-manager/tree/dev/docs/
 
-#### [Details](https://github.com/Myxogastria0808/debt-manager/docs/README.md)
-- https://github.com/Myxogastria0808/debt-manager/docs/README.md
+#### [Details](https://github.com/Myxogastria0808/debt-manager/tree/dev/docs/README.md)
+- https://github.com/Myxogastria0808/debt-manager/tree/dev/docs/README.md
 
 ## CI/CD
 
 - GitHub Actions with Nix
 
-#### [CI/CD](https://github.com/Myxogastria0808/debt-manager/.github/workflows/)
-- https://github.com/Myxogastria0808/debt-manager/.github/workflows/
+#### [CI/CD](https://github.com/Myxogastria0808/debt-manager/tree/dev/.github/workflows/)
+- https://github.com/Myxogastria0808/debt-manager/tree/dev/.github/workflows/
 
 ## テストツール
 
