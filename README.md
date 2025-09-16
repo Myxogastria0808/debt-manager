@@ -229,6 +229,7 @@ flowchart LR
     fix["fix/*"] --with loose checks--> dev["dev"]
     update["update/*"] --with loose checks--> dev["dev"]
     dev["dev"] --with strict checks--> main["main"]
+    test["test/*"] --with loose checks--> dev["dev"]
     main["main"] --with strict checks (cron)--> main["main"]
 ```
 
