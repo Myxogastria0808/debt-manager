@@ -17,7 +17,7 @@
   - `astro-build.astro-vscode`
   - `esbenp.prettier-vscode`
   - `dbaeumer.vscode-eslint`
-
+  - `clinyong.vscode-css-modules`
 
 1. このレポジトリをクローン
 
