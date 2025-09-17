@@ -25,11 +25,7 @@ jobs:
       # Replace database_id in backend/wrangler.jsonc
       - name: Replace database_id in backend/wrangler.jsonc
         run: |
-          sed -i "s/\"database_id\": \".*\"/\"database_id\": \"hello-world!\"/" products/backend/wrangler.jsonc
-      # Read
-      - name: Read database_id
-        run: |
-          cat products/backend/wrangler.jsonc
+          sed -i "s/\"database_id\": \".*\"/\"database_id\": \"${{ secrets.CLOUDFLARE_D1_DATABASE_ID }}\"/" products/backend/wrangler.jsonc
       # Build & Deploy Backend to Cloudflare Workers
       - name: Build & Deploy Worker
         uses: cloudflare/wrangler-action@v3
