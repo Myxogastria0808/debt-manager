@@ -236,12 +236,13 @@ flowchart LR
 #### with `checks` (`dev branch`)
 
 - test (`push` and `pull requests`)
+- CodeQL Scanning
 - docs (`push`)
 
 #### with `checks` (`main branch`)
 
 - test (`pull requests`)
-- CodeQL Scanning (`pull requests` and `push`)
+- CodeQL Scanning
 - deploy-frontend (`push`)
 - deploy-backend (`push`)
 
