@@ -224,27 +224,28 @@ dev branch is the development root branch.
 
 ```mermaid
 flowchart LR
-    feature["feat/*"] --with loose checks--> dev["dev"]
-    chore["chore/*"] --with loose checks--> dev["dev"]
-    fix["fix/*"] --with loose checks--> dev["dev"]
-    update["update/*"] --with loose checks--> dev["dev"]
-    dev["dev"] --with strict checks--> main["main"]
-    test["test/*"] --with loose checks--> dev["dev"]
-    main["main"] --with strict checks (cron)--> main["main"]
+    feature["feat/*"] --with checks--> dev["dev"]
+    chore["chore/*"] --with checks--> dev["dev"]
+    fix["fix/*"] --with checks--> dev["dev"]
+    update["update/*"] --with checks--> dev["dev"]
+    dev["dev"] --with checks--> main["main"]
+    test["test/*"] --with checks--> dev["dev"]
+    main["main"] --with checks (cron)--> main["main"]
 ```
 
-#### with `loose checks` (`dev branch`)
+#### with `checks` (`dev branch`)
 
 - test (`push` and `pull requests`)
+- CodeQL Scanning
 - docs (`push`)
 
-#### with `strict checks` (`main branch`)
+#### with `checks` (`main branch`)
 
 - test (`pull requests`)
-- CodeQL Scanning (`pull requests`)
-- deploy-frontend (`push` and `pull requests`)
-- deploy-backend (`push` and `pull requests`)
+- CodeQL Scanning
+- deploy-frontend (`push`)
+- deploy-backend (`push`)
 
-#### with `strict checks (cron)` (`main branch`)
+#### with `checks (cron)` (`main branch`)
 
 - test (`cron`)
