@@ -9,8 +9,10 @@
     "ui": "turbo run ui",
     "coverage": "turbo run coverage",
     "backend:dev": "pnpm -C products/backend dev",
-    "backend:deploy": "pnpm -C products/backend deploy",
-    "backend:cf-typegen": "pnpm -C products/backend cf-typegen",
+    "backend:build": "pnpm -C products/backend build",
+    "backend:generate": "pnpm -C products/backend generate",
+    "backend:local:migration": "pnpm -C products/backend local:migration",
+    "backend:remote:migration": "pnpm -C products/backend remote:migration",
     "backend:test": "pnpm -C products/backend test",
     "backend:coverage": "pnpm -C products/backend coverage",
     "backend:ui": "pnpm -C products/backend ui",
@@ -57,6 +59,7 @@
   "packageManager": "pnpm@10.13.1",
   "devDependencies": {
     "@astrojs/check": "catalog:docs",
+    "@cloudflare/workers-types": "catalog:backend",
     "@eslint/js": "catalog:frontend",
     "@types/react": "catalog:frontend",
     "@types/react-dom": "catalog:frontend",
@@ -64,6 +67,8 @@
     "@vitest/coverage-v8": "catalog:",
     "@vitest/ui": "catalog:",
     "astro": "catalog:docs",
+    "drizzle-kit": "catalog:backend",
+    "drizzle-orm": "catalog:backend",
     "eslint": "catalog:frontend",
     "eslint-plugin-react-hooks": "catalog:frontend",
     "eslint-plugin-react-refresh": "catalog:frontend",
@@ -78,8 +83,8 @@
     "turbo": "catalog:root",
     "typescript": "catalog:",
     "typescript-eslint": "catalog:frontend",
-    "wrangler": "catalog:backend",
     "vite": "catalog:frontend",
-    "vitest": "catalog:"
+    "vitest": "catalog:",
+    "wrangler": "catalog:backend"
   }
 }

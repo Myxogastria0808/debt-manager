@@ -7,11 +7,43 @@
 ![Vitest](https://img.shields.io/badge/-vitest-6e9f18?style=flat&logo=vitest&logoColor=ffffff)
 [![RenovateBot](https://img.shields.io/badge/RenovateBot-1A1F6C?logo=renovate&logoColor=fff)](#)
 
-## Documentation
+## セットアップ
+
+0. いくつかのツールをインストール
+
+- Node.js
+- pnpm
+- vscode extensions
+  - `astro-build.astro-vscode`
+  - `esbenp.prettier-vscode`
+  - `dbaeumer.vscode-eslint`
+  - `clinyong.vscode-css-modules`
+
+1. このレポジトリをクローン
+
+```sh
+git clone https://github.com/Myxogastria0808/debt-manager.git
+cd debt-manager
+```
+
+2. 以下のコマンドを実行
+
+```sh
+pnpm i && pnpm run backend:generate && pnpm run backend:local:migration
+```
+
+2. `y` を入力して環境を移行する
+
+```sh
+✔ About to apply 1 migration(s)
+Your database may not be available to serve requests during the migration, continue? [y/N] y
+```
+
+## ドキュメント
 
 https://myxogastria0808.github.io/debt-manager/
 
-## Technology Stack Used
+## 技術スタック
 
 ### Frontend
 
@@ -23,11 +55,11 @@ https://myxogastria0808.github.io/debt-manager/
 #### [Live Demo](https://debt-manager.yukiosada.work/)
 - https://debt-manager.yukiosada.work/
 
-#### [Source Code](https://github.com/Myxogastria0808/debt-manager/products/frontend/)
-- https://github.com/Myxogastria0808/debt-manager/products/frontend/
+#### [Source Code](https://github.com/Myxogastria0808/debt-manager/tree/dev/products/frontend/)
+- https://github.com/Myxogastria0808/debt-manager/tree/dev/products/frontend/
 
-#### [Details](https://github.com/Myxogastria0808/debt-manager/products/frontend/README.md)
-- https://github.com/Myxogastria0808/debt-manager/products/frontend/README.md
+#### [Details](https://github.com/Myxogastria0808/debt-manager/tree/dev/products/frontend/README.md)
+- https://github.com/Myxogastria0808/debt-manager/tree/dev/products/frontend/README.md
 
 #### [Vitest UI Report](https://myxogastria0808.github.io/debt-manager/vitest/frontend/)
 - https://myxogastria0808.github.io/debt-manager/vitest/frontend/
@@ -40,16 +72,16 @@ https://myxogastria0808.github.io/debt-manager/
 - TypeScript
 - Hono (Web Framework)
 - fetch API (for calling Webhook)
-- Prisma (ORM)
+- Drizzle (ORM)
 
-#### [Live Demo](https://debt-manager-api.yukiosada.work)
-- https://debt-manager-api.yukiosada.work
+#### [Live Demo](https://debt-manager-api.yukiosada.work/)
+- https://debt-manager-api.yukiosada.work/
 
-#### [Source Code](https://github.com/Myxogastria0808/debt-manager/products/backend/)
-- https://github.com/Myxogastria0808/debt-manager/products/backend/
+#### [Source Code](https://github.com/Myxogastria0808/debt-manager/tree/dev/products/backend/)
+- https://github.com/Myxogastria0808/debt-manager/tree/dev/products/backend/
 
-#### [Details](https://github.com/Myxogastria0808/debt-manager/products/backend/README.md)
-- https://github.com/Myxogastria0808/debt-manager/products/backend/README.md
+#### [Details](https://github.com/Myxogastria0808/debt-manager/tree/dev/products/backend/README.md)
+- https://github.com/Myxogastria0808/debt-manager/tree/dev/products/backend/README.md
 
 #### [Vitest UI Report](https://myxogastria0808.github.io/debt-manager/vitest/backend/)
 - https://myxogastria0808.github.io/debt-manager/vitest/backend/
@@ -60,7 +92,7 @@ https://myxogastria0808.github.io/debt-manager/
 ### Database
 
 - development
-  - PostgreSQL (Docker)
+  - SQLite
 - production
   - Cloudflare D1
 
@@ -68,44 +100,41 @@ https://myxogastria0808.github.io/debt-manager/
 
 - Astro
 
-#### [Docs](https://github.com/Myxogastria0808/debt-manager/docs/)
-- https://github.com/Myxogastria0808/debt-manager/docs/
+#### [Docs](https://github.com/Myxogastria0808/debt-manager/tree/dev/docs/)
+- https://github.com/Myxogastria0808/debt-manager/tree/dev/docs/
 
-#### [Details](https://github.com/Myxogastria0808/debt-manager/docs/README.md)
-- https://github.com/Myxogastria0808/debt-manager/docs/README.md
+#### [Details](https://github.com/Myxogastria0808/debt-manager/tree/dev/docs/README.md)
+- https://github.com/Myxogastria0808/debt-manager/tree/dev/docs/README.md
 
 ## CI/CD
 
 - GitHub Actions with Nix
 
-#### [CI/CD](https://github.com/Myxogastria0808/debt-manager/.github/workflows/)
-- https://github.com/Myxogastria0808/debt-manager/.github/workflows/
+#### [CI/CD](https://github.com/Myxogastria0808/debt-manager/tree/dev/.github/workflows/)
+- https://github.com/Myxogastria0808/debt-manager/tree/dev/.github/workflows/
 
-## Testing Tool
+## テストツール
 
 - Vitest
 
-## Management Tool
+## 開発ツール
 
 > [!WARNING]
-> This project only use pnpm (not yarn, npm or bun).
+> このプロジェクトは、 pnpmのみサポートしています。 npmやyarnなどはサポートしていません。
 
 - pnpm (with workspace feature)
 - turbo (monorepo management tool)
 - Nix (optional tool)
 
-## System Diagram ~Development~
+## システム構成図 ~ 開発環境 ~
 
 ```mermaid
 graph LR;
-    subgraph "Database (Docker)"
-        db[("PostgreSQL")]
-    end
-    db[("PostgreSQL")] <--> prisma["Prisma (ORM)"]
+    db[("SQLite")] <--> drizzle["Drizzle (ORM)"]
     subgraph "Backend (Localhost)"
-        prisma["Prisma (ORM)"] <--> hono["Hono (Web API)"]
-        prisma["Prisma (ORM)"] <--> discord["Discord Webhook"]
-        prisma["Prisma (ORM)"] <--> slack["Slack Webhook"]
+        drizzle["Drizzle (ORM)"] <--> hono["Hono (Web API)"]
+        drizzle["Drizzle (ORM)"] <--> discord["Discord Webhook"]
+        drizzle["Drizzle (ORM)"] <--> slack["Slack Webhook"]
     end
     hono["Hono (Web API)"] <--> frontend["Vite + React"]
     subgraph "Frontend (Localhost)"
@@ -122,15 +151,15 @@ graph LR;
     workspace(["Workspace (Slack)"]) --notification--> user["User"]
 ```
 
-## System Diagram ~Production~
+## システム構成図 ~ 本番環境 ~
 
 ```mermaid
 graph LR;
-    db[("Database (Cloudflare D1)")] <--> prisma["Prisma (ORM)"]
+    db[("Database (Cloudflare D1)")] <--> drizzle["Drizzle (ORM)"]
     subgraph "Backend (Cloudflare Workers)"
-        prisma["Prisma (ORM)"] <--> hono["Hono (Web API)"]
-        prisma["Prisma (ORM)"] <--> discord["Discord Webhook"]
-        prisma["Prisma (ORM)"] <--> slack["Slack Webhook"]
+        drizzle["Drizzle (ORM)"] <--> hono["Hono (Web API)"]
+        drizzle["Drizzle (ORM)"] <--> discord["Discord Webhook"]
+        drizzle["Drizzle (ORM)"] <--> slack["Slack Webhook"]
     end
     hono["Hono (Web API)"] <--> frontend["Vite + React"]
     subgraph "Frontend (Cloudflare Workers)"
@@ -147,12 +176,12 @@ graph LR;
     workspace(["Workspace (Slack)"]) --notification--> user["User"]
 ```
 
-## Entity Relationship Diagram (ER Diagram)
+## ER図
 
 ```mermaid
 ```
 
-## Branch Strategy
+## ブランチ戦略
 
 ### main
 
@@ -200,6 +229,7 @@ flowchart LR
     fix["fix/*"] --with loose checks--> dev["dev"]
     update["update/*"] --with loose checks--> dev["dev"]
     dev["dev"] --with strict checks--> main["main"]
+    test["test/*"] --with loose checks--> dev["dev"]
     main["main"] --with strict checks (cron)--> main["main"]
 ```
 
@@ -212,6 +242,8 @@ flowchart LR
 
 - test (`pull requests`)
 - CodeQL Scanning (`pull requests`)
+- deploy-frontend (`push` and `pull requests`)
+- deploy-backend (`push` and `pull requests`)
 
 #### with `strict checks (cron)` (`main branch`)
 

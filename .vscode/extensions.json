@@ -3,7 +3,6 @@
   "recommendations": [
     "astro-build.astro-vscode",
     "esbenp.prettier-vscode",
-    "dbaeumer.vscode-eslint",
-    "Prisma.prisma"
+    "dbaeumer.vscode-eslint"
   ],
 }
