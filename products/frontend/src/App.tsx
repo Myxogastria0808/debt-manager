@@ -14,4 +14,7 @@ const App: FC = () => {
   );
 };
 
+// <Route path="/" element={<名前 />} />
+// 追加する
+
 export default App;

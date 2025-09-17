@@ -32,7 +32,7 @@ cd debt-manager
 pnpm i && pnpm run backend:generate && pnpm run backend:local:migration
 ```
 
-3. `y`を入力してEnterを押す
+2. `y` を入力して環境を移行する
 
 ```sh
 ✔ About to apply 1 migration(s)
