@@ -1,11 +1,23 @@
-import type { FC } from 'react';
+import { useEffect, useState, type FC } from 'react';
 import styles from './index.module.css';
 
 const Root: FC = () => {
+  const [res, setRes] = useState('');
+
+  useEffect(() => {
+    const sample = async () => {
+      const response = await fetch('http://localhost:8787/');
+      setRes(await response.text());
+    };
+    sample();
+  }, []);
+
   return (
     <>
       <div className={styles.container}>
         <h1>PayCrew</h1>
+
+        <p>{res}</p>
 
         <p className={styles.center}>
           まとめ払いの際の支払いをスムーズにするアプリです。

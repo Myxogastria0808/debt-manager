@@ -11,15 +11,7 @@ export type Bindings = {
 
 const app = new Hono<{ Bindings: Bindings }>();
 
-app.use(
-  '/*',
-  cors({
-    origin: ['*'],
-    allowHeaders: ['Content-Type'],
-    allowMethods: ['*'],
-    exposeHeaders: ['Content-Type'],
-  })
-);
+app.use('/*', cors());
 
 app.route('/', user);
 app.route('/', getUser);
