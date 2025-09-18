@@ -28,11 +28,13 @@ const Root: FC = () => {
   return (
     <>
       <div className={styles.container}>
-        <h1>お金の貸し借り管理</h1>
+        <h1>PayCrew</h1>
 
-        <p>{geso}</p>
-
-        <button onClick={sample}>sample</button>
+        <p className={styles.center}>
+          まとめ払いの際の支払いをスムーズにするアプリです。
+          <br />
+          名前と金額を入力して記録できます。
+        </p>
 
         <form id="loan-form">
           <div className={styles.formGroup}>
@@ -47,12 +49,10 @@ const Root: FC = () => {
 
           <button type="submit">追加</button>
         </form>
-
         <div className={styles.history}>
           <h2>履歴</h2>
           <ul className={styles.historyList}></ul>
         </div>
-
         <div className={styles.reminder}>
           <h2>リマインダー通知</h2>
           <p className={styles.reminderMessage}>現在通知はありません。</p>
