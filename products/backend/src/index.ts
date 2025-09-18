@@ -1,9 +1,6 @@
-import { drizzle } from 'drizzle-orm/d1';
 import { Hono } from 'hono';
-import { users } from './db/schema';
-import { user } from './handler/route/script';
 import { cors } from 'hono/cors';
-import { user as getUser } from './handler/route/users';
+import { history } from './handler/route/historys';
 
 export type Bindings = {
   DB: D1Database;
@@ -11,10 +8,17 @@ export type Bindings = {
 
 const app = new Hono<{ Bindings: Bindings }>();
 
-app.use('/*', cors());
+app.use(
+  '/*',
+  cors({
+    origin: ['http://localhost:5173', 'https://debt-manager.yukiosada.work'],
+    allowHeaders: ['Content-Type'],
+    allowMethods: ['GET', 'POST', 'DELETE'],
+    exposeHeaders: ['Content-Type'],
+  })
+);
 
-app.route('/', user);
-app.route('/', getUser);
+app.route('/historys', history);
 
 app.get('/', (c) => {
   return c.text('Hello Hono!');
