@@ -1,16 +1,43 @@
-import type { FC } from 'react';
+import { useEffect, useState, type FC } from 'react';
 import styles from './index.module.css';
 
 const Root: FC = () => {
+  const [geso, setGeso] = useState('');
+  useEffect(() => {
+    sample();
+  }, []);
+
+  useEffect(() => {
+    console.log(geso);
+  }, [geso]);
+
+  async function sample() {
+    const data = {
+      name: 'geso',
+      email: 'sakana@geso.com',
+      password: 'super-unko',
+    };
+    const response = await fetch('https://debt-manager-api.yukiosada.work/users', {
+      method: 'POST',
+      body: JSON.stringify(data),
+    });
+
+    setGeso(await response.json());
+  }
+
   return (
     <>
       <div className={styles.container}>
         <h1>お金の貸し借り管理</h1>
 
+        <p>{geso}</p>
+
+        <button onClick={sample}>sample</button>
+
         <form id="loan-form">
           <div className={styles.formGroup}>
             <label>借りた人の名前:</label>
-            <input type="text" />
+            <input type="text" value="formData.name" />
           </div>
 
           <div className={styles.formGroup}>
