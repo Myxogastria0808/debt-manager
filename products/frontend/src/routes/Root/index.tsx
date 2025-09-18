@@ -5,7 +5,13 @@ const Root: FC = () => {
   return (
     <>
       <div className={styles.container}>
-        <h1>お金の貸し借り管理</h1>
+        <h1>PayCrew</h1>
+
+        <p className={styles.center}>
+          まとめ払いの際の支払いをスムーズにするアプリです。
+          <br />
+          名前と金額を入力して記録できます。
+        </p>
 
         <form id="loan-form">
           <div className={styles.formGroup}>
