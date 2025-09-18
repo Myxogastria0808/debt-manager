@@ -2,7 +2,7 @@ import { useEffect, useState, type ChangeEventHandler, type FC } from 'react';
 import styles from './index.module.css';
 
 const Root: FC = () => {
-  const [historys, sethistorys] = useState<
+  const [historys, setHistorys] = useState<
     {
       id: number;
       from: string;
@@ -15,7 +15,7 @@ const Root: FC = () => {
   // const amount = useRef<HTMLInputElement | null>(null);
   const [fromName, setFromName] = useState<string>('');
   const [toName, setToName] = useState<string>('');
-  const [amount, setAmount] = useState<number>(0);
+  const [amount, setAmount] = useState<number | null>(null);
 
   const fromNameHandler: ChangeEventHandler<HTMLInputElement> = ({ target }) => {
     setFromName(target.value);
@@ -42,7 +42,13 @@ const Root: FC = () => {
     getHistorys();
   }, []);
 
-  const addHistory = async () => {
+  const handleSubmit: React.FormEventHandler<HTMLFormElement> = (event) => {
+    event.preventDefault();
+    console.log(fromName, toName, amount);
+    addHistory(fromName, toName, amount);
+  };
+
+  const addHistory = async (fromName: string, toName: string, amount: number | null) => {
     const data = {
       from: fromName,
       to: toName,
@@ -61,7 +67,10 @@ const Root: FC = () => {
       method: 'GET',
     });
 
-    sethistorys(await response.json());
+    const a = await response.json();
+    console.log(a);
+
+    setHistorys(a);
   };
 
   return (
@@ -75,7 +84,7 @@ const Root: FC = () => {
           名前と金額を入力して記録できます。
         </p>
 
-        <form id="loan-form" onSubmit={addHistory}>
+        <form id="loan-form" onSubmit={handleSubmit}>
           <div className={styles.formGroup}>
             <label>まとめて払った人の名前:</label>
             <input type="text" value={fromName} onChange={fromNameHandler} />
@@ -88,7 +97,15 @@ const Root: FC = () => {
 
           <div className={styles.formGroup}>
             <label>借りた金額 (円):</label>
-            <input type="number" id="amount" name="amount" min="1" required value={amount} onChange={amountHandler} />
+            <input
+              type="number"
+              id="amount"
+              name="amount"
+              min="1"
+              required
+              value={amount ?? ''}
+              onChange={amountHandler}
+            />
           </div>
 
           <button type="submit">追加</button>
@@ -96,8 +113,8 @@ const Root: FC = () => {
         <div className={styles.history}>
           <h2>履歴</h2>
           <ul className={styles.historyList}>
-            {historys.map((v) => (
-              <li>
+            {historys.map((v, k) => (
+              <li key={k}>
                 {v.from} {v.to} {v.amount}
               </li>
             ))}

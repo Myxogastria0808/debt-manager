@@ -8,8 +8,6 @@ export type Bindings = {
 
 const app = new Hono<{ Bindings: Bindings }>();
 
-app.route('/historys', history);
-
 app.use(
   '/*',
   cors({
@@ -19,6 +17,8 @@ app.use(
     exposeHeaders: ['Content-Type'],
   })
 );
+
+app.route('/historys', history);
 
 app.get('/', (c) => {
   return c.text('Hello Hono!');
