@@ -1,29 +1,68 @@
-import { useEffect, useState, type FC } from 'react';
+import { useEffect, useState, type ChangeEventHandler, type FC } from 'react';
 import styles from './index.module.css';
 
 const Root: FC = () => {
-  const [geso, setGeso] = useState('');
+  const [historys, sethistorys] = useState<
+    {
+      id: number;
+      from: string;
+      to: string;
+      amount: number;
+    }[]
+  >([]);
+  // const fromName = useRef<HTMLInputElement | null>(null);
+  // const toName = useRef<HTMLInputElement | null>(null);
+  // const amount = useRef<HTMLInputElement | null>(null);
+  const [fromName, setFromName] = useState<string>('');
+  const [toName, setToName] = useState<string>('');
+  const [amount, setAmount] = useState<number>(0);
+
+  const fromNameHandler: ChangeEventHandler<HTMLInputElement> = ({ target }) => {
+    setFromName(target.value);
+  };
+  const toNameHandler: ChangeEventHandler<HTMLInputElement> = ({ target }) => {
+    setToName(target.value);
+  };
+  const amountHandler: ChangeEventHandler<HTMLInputElement> = ({ target }) => {
+    setAmount(Number(target.value));
+  };
+
   useEffect(() => {
-    sample();
+    console.log(historys);
+  }, [historys]);
+
+  useEffect(() => {
+    // const sample = async () => {
+    //   const res = await fetch('http://localhost:8787/', {
+    //     method: 'GET',
+    //   });
+    //   console.log(res.text());
+    // };
+    // sample();
+    getHistorys();
   }, []);
 
-  useEffect(() => {
-    console.log(geso);
-  }, [geso]);
-
-  async function sample() {
+  const addHistory = async () => {
     const data = {
-      name: 'geso',
-      email: 'sakana@geso.com',
-      password: 'super-unko',
+      from: fromName,
+      to: toName,
+      amount: Number(amount),
     };
-    const response = await fetch('https://debt-manager-api.yukiosada.work/users', {
+    await fetch('http://localhost:8787/historys', {
       method: 'POST',
       body: JSON.stringify(data),
     });
 
-    setGeso(await response.json());
-  }
+    getHistorys();
+  };
+
+  const getHistorys = async () => {
+    const response = await fetch('http://localhost:8787/historys', {
+      method: 'GET',
+    });
+
+    sethistorys(await response.json());
+  };
 
   return (
     <>
@@ -36,22 +75,33 @@ const Root: FC = () => {
           名前と金額を入力して記録できます。
         </p>
 
-        <form id="loan-form">
+        <form id="loan-form" onSubmit={addHistory}>
           <div className={styles.formGroup}>
-            <label>借りた人の名前:</label>
-            <input type="text" value="formData.name" />
+            <label>まとめて払った人の名前:</label>
+            <input type="text" value={fromName} onChange={fromNameHandler} />
+          </div>
+
+          <div className={styles.formGroup}>
+            <label>返金する人の名前:</label>
+            <input type="text" value={toName} onChange={toNameHandler} />
           </div>
 
           <div className={styles.formGroup}>
             <label>借りた金額 (円):</label>
-            <input type="number" id="amount" name="amount" min="1" required />
+            <input type="number" id="amount" name="amount" min="1" required value={amount} onChange={amountHandler} />
           </div>
 
           <button type="submit">追加</button>
         </form>
         <div className={styles.history}>
           <h2>履歴</h2>
-          <ul className={styles.historyList}></ul>
+          <ul className={styles.historyList}>
+            {historys.map((v) => (
+              <li>
+                {v.from} {v.to} {v.amount}
+              </li>
+            ))}
+          </ul>
         </div>
         <div className={styles.reminder}>
           <h2>リマインダー通知</h2>

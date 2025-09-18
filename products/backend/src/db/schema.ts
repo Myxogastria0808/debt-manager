@@ -1,12 +1,12 @@
 import { integer, sqliteTable, text } from 'drizzle-orm/sqlite-core';
 
-export const users = sqliteTable(
-  'users',
+export const historys = sqliteTable(
+  'historys',
   {
     id: integer('id', { mode: 'number' }).primaryKey({ autoIncrement: true }),
-    name: text('name').notNull(),
-    email: text('email').notNull(),
-    password: text('password').notNull(),
+    from: text('from').notNull(),
+    to: text('to').notNull(),
+    amount: integer('amount', { mode: 'number' }).notNull(),
   },
   () => []
 );
