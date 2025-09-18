@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for src/application/script.ts</title>
+    <title>Code coverage report for src/application/historys.ts</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../../prettify.css" />
     <link rel="stylesheet" href="../../base.css" />
@@ -19,13 +19,13 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="../../index.html">All files</a> / <a href="index.html">src/application</a> script.ts</h1>
+        <h1><a href="../../index.html">All files</a> / <a href="index.html">src/application</a> historys.ts</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>0/12</span>
+                <span class='fraction'>0/15</span>
             </div>
         
             
@@ -46,7 +46,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>0/12</span>
+                <span class='fraction'>0/15</span>
             </div>
         
             
@@ -78,7 +78,11 @@
 <a name='L13'></a><a href='#L13'>13</a>
 <a name='L14'></a><a href='#L14'>14</a>
 <a name='L15'></a><a href='#L15'>15</a>
-<a name='L16'></a><a href='#L16'>16</a></td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
+<a name='L16'></a><a href='#L16'>16</a>
+<a name='L17'></a><a href='#L17'>17</a>
+<a name='L18'></a><a href='#L18'>18</a>
+<a name='L19'></a><a href='#L19'>19</a>
+<a name='L20'></a><a href='#L20'>20</a></td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -93,20 +97,28 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js"><span class="cstat-no" title="statement not covered" >import { insert_usersdb } from '../infrastructure/insert';<span class="fstat-no" title="function not covered" ><span class="branch-0 cbranch-no" title="branch not covered" ></span></span></span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js"><span class="cstat-no" title="statement not covered" >import { insert_historydb, select_historydb_all } from '../infrastructure/historys';<span class="fstat-no" title="function not covered" ><span class="branch-0 cbranch-no" title="branch not covered" ></span></span></span>
 import { Bindings } from '..';
 &nbsp;
-<span class="cstat-no" title="statement not covered" >export const add_user = async (</span>
+<span class="cstat-no" title="statement not covered" >export const add_history = async (</span>
 <span class="cstat-no" title="statement not covered" >  env: Bindings,</span>
-<span class="cstat-no" title="statement not covered" >  req_param: { id: number; name: string; email: string; password: string }</span>
+<span class="cstat-no" title="statement not covered" >  req_param: { id: number; from: string; to: string; amount: number }</span>
 <span class="cstat-no" title="statement not covered" >) =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >  const user = {</span>
-<span class="cstat-no" title="statement not covered" >    name: req_param.name,</span>
-<span class="cstat-no" title="statement not covered" >    email: req_param.email,</span>
-<span class="cstat-no" title="statement not covered" >    password: req_param.password,</span>
+<span class="cstat-no" title="statement not covered" >  const history = {</span>
+<span class="cstat-no" title="statement not covered" >    from: req_param.from,</span>
+<span class="cstat-no" title="statement not covered" >    to: req_param.to,</span>
+<span class="cstat-no" title="statement not covered" >    amount: req_param.amount,</span>
 <span class="cstat-no" title="statement not covered" >  };</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered" >  return await insert_usersdb(env, user);</span>
+<span class="cstat-no" title="statement not covered" >  return await insert_historydb(env, history);</span>
+<span class="cstat-no" title="statement not covered" >};</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >export const get_historys = async (env: Bindings) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >  return await select_historydb_all(env);</span>
 <span class="cstat-no" title="statement not covered" >};</span>
 &nbsp;</pre></td></tr></table></pre>
 
@@ -115,7 +127,7 @@ import { Bindings } from '..';
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2025-09-18T06:30:25.724Z
+                at 2025-09-18T07:27:48.851Z
             </div>
         <script src="../../prettify.js"></script>
         <script>

@@ -25,28 +25,28 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>0/12</span>
+                <span class='fraction'>0/18</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>1/1</span>
+                <span class='fraction'>0/1</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>1/1</span>
+                <span class='fraction'>0/1</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>0/12</span>
+                <span class='fraction'>0/18</span>
             </div>
         
             
@@ -86,35 +86,40 @@
 <a name='L21'></a><a href='#L21'>21</a>
 <a name='L22'></a><a href='#L22'>22</a>
 <a name='L23'></a><a href='#L23'>23</a>
-<a name='L24'></a><a href='#L24'>24</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L24'></a><a href='#L24'>24</a>
+<a name='L25'></a><a href='#L25'>25</a>
+<a name='L26'></a><a href='#L26'>26</a>
+<a name='L27'></a><a href='#L27'>27</a>
+<a name='L28'></a><a href='#L28'>28</a></td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { drizzle } from 'drizzle-orm/d1';
-<span class="cstat-no" title="statement not covered" >import { Hono } from 'hono';</span>
-import { users } from './db/schema';
-<span class="cstat-no" title="statement not covered" >import { user } from './handler/route/script';</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js"><span class="cstat-no" title="statement not covered" >import { Hono } from 'hono';<span class="fstat-no" title="function not covered" ><span class="branch-0 cbranch-no" title="branch not covered" ></span></span></span>
 <span class="cstat-no" title="statement not covered" >import { cors } from 'hono/cors';</span>
-<span class="cstat-no" title="statement not covered" >import { user as getUser } from './handler/route/users';</span>
+<span class="cstat-no" title="statement not covered" >import { history } from './handler/route/historys';</span>
 &nbsp;
 export type Bindings = {
   DB: D1Database;
@@ -122,10 +127,17 @@ export type Bindings = {
 &nbsp;
 <span class="cstat-no" title="statement not covered" >const app = new Hono&lt;{ Bindings: Bindings }&gt;();</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered" >app.use('/*', cors());</span>
+<span class="cstat-no" title="statement not covered" >app.route('/historys', history);</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered" >app.route('/', user);</span>
-<span class="cstat-no" title="statement not covered" >app.route('/', getUser);</span>
+<span class="cstat-no" title="statement not covered" >app.use(</span>
+<span class="cstat-no" title="statement not covered" >  '/*',</span>
+<span class="cstat-no" title="statement not covered" >  cors({</span>
+<span class="cstat-no" title="statement not covered" >    origin: ['http://localhost:5173'],</span>
+<span class="cstat-no" title="statement not covered" >    allowHeaders: ['Content-Type'],</span>
+<span class="cstat-no" title="statement not covered" >    allowMethods: ['GET', 'POST', 'DELETE'],</span>
+<span class="cstat-no" title="statement not covered" >    exposeHeaders: ['Content-Type'],</span>
+<span class="cstat-no" title="statement not covered" >  })</span>
+<span class="cstat-no" title="statement not covered" >);</span>
 &nbsp;
 <span class="cstat-no" title="statement not covered" >app.get('/', (c) =&gt; {</span>
 <span class="cstat-no" title="statement not covered" >  return c.text('Hello Hono!');</span>
@@ -139,7 +151,7 @@ export type Bindings = {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2025-09-18T06:30:25.724Z
+                at 2025-09-18T07:27:48.851Z
             </div>
         <script src="../prettify.js"></script>
         <script>
