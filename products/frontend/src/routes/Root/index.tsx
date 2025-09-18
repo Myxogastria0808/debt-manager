@@ -10,9 +10,6 @@ const Root: FC = () => {
       amount: number;
     }[]
   >([]);
-  // const fromName = useRef<HTMLInputElement | null>(null);
-  // const toName = useRef<HTMLInputElement | null>(null);
-  // const amount = useRef<HTMLInputElement | null>(null);
   const [fromName, setFromName] = useState<string>('');
   const [toName, setToName] = useState<string>('');
   const [amount, setAmount] = useState<number | null>(null);
@@ -28,23 +25,11 @@ const Root: FC = () => {
   };
 
   useEffect(() => {
-    console.log(historys);
-  }, [historys]);
-
-  useEffect(() => {
-    // const sample = async () => {
-    //   const res = await fetch('http://localhost:8787/', {
-    //     method: 'GET',
-    //   });
-    //   console.log(res.text());
-    // };
-    // sample();
     getHistorys();
   }, []);
 
   const handleSubmit: React.FormEventHandler<HTMLFormElement> = (event) => {
     event.preventDefault();
-    console.log(fromName, toName, amount);
     addHistory(fromName, toName, amount);
   };
 
@@ -67,10 +52,7 @@ const Root: FC = () => {
       method: 'GET',
     });
 
-    const a = await response.json();
-    console.log(a);
-
-    setHistorys(a);
+    setHistorys(await response.json());
   };
 
   return (
@@ -115,7 +97,7 @@ const Root: FC = () => {
           <ul className={styles.historyList}>
             {historys.map((v, k) => (
               <li key={k}>
-                {v.from} {v.to} {v.amount}
+                {v.from} から {v.to} に {v.amount} 円
               </li>
             ))}
           </ul>
