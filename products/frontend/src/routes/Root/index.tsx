@@ -39,7 +39,7 @@ const Root: FC = () => {
       to: toName,
       amount: Number(amount),
     };
-    await fetch('http://localhost:8787/historys', {
+    await fetch('https://debt-manager-api.yukiosada.work/historys', {
       method: 'POST',
       body: JSON.stringify(data),
     });
@@ -48,7 +48,7 @@ const Root: FC = () => {
   };
 
   const getHistorys = async () => {
-    const response = await fetch('http://localhost:8787/historys', {
+    const response = await fetch('https://debt-manager-api.yukiosada.work/historys', {
       method: 'GET',
     });
 

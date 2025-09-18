@@ -11,7 +11,7 @@ const app = new Hono<{ Bindings: Bindings }>();
 app.use(
   '/*',
   cors({
-    origin: ['http://localhost:5173'],
+    origin: ['http://localhost:5173', 'https://debt-manager.yukiosada.work'],
     allowHeaders: ['Content-Type'],
     allowMethods: ['GET', 'POST', 'DELETE'],
     exposeHeaders: ['Content-Type'],
