@@ -17,12 +17,12 @@ export const addHistory = async (
   };
   const match_data = await selectHistoryDBByFromTo(env, history.from, history.to);
   if (match_data.length > 0) {
-    deleteHistoryDBById(env, match_data[0].id);
+    await deleteHistoryDBById(env, match_data[0].id);
     history.amount += match_data[0].amount;
   }
   const reverse_match_data = await selectHistoryDBByFromTo(env, history.to, history.from);
   if (reverse_match_data.length > 0) {
-    deleteHistoryDBById(env, reverse_match_data[0].id);
+    await deleteHistoryDBById(env, reverse_match_data[0].id);
     history.amount -= reverse_match_data[0].amount;
     if (history.amount < 0) {
       const temp = history.from;
