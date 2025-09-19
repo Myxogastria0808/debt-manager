@@ -2,7 +2,8 @@ import { useEffect, useRef, useState } from 'react';
 import styles from './index.module.css';
 
 const Root: React.FC = () => {
-  const backendURL = 'http://localhost:8787';
+  //const backendURL = 'http://localhost:8787';
+  const backendURL = 'https://debt-manager-api.yukiosada.work';
 
   const [historys, setHistorys] = useState<
     {
