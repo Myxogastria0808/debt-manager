@@ -1,8 +1,8 @@
 import { drizzle, DrizzleD1Database } from 'drizzle-orm/d1';
 import { historys } from '../db/schema';
-import { Bindings } from '..';
+import { Bindings } from '../domain/script';
 
-export const insert_historydb = async (
+export const insertHistoryDB = async (
   env: Bindings,
   history: {
     from: string;
@@ -15,7 +15,7 @@ export const insert_historydb = async (
   return await db.insert(historys).values(history);
 };
 
-export const select_historydb_all = async (env: Bindings) => {
+export const selectHistoryDBAll = async (env: Bindings) => {
   const db = drizzle(env.DB);
 
   return await db.select().from(historys).all();

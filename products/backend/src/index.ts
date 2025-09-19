@@ -1,10 +1,7 @@
 import { Hono } from 'hono';
 import { cors } from 'hono/cors';
-import { history } from './handler/route/historys';
-
-export type Bindings = {
-  DB: D1Database;
-};
+import { historys } from './handler/route/historys';
+import { Bindings } from 'hono/types';
 
 const app = new Hono<{ Bindings: Bindings }>();
 
@@ -18,7 +15,7 @@ app.use(
   })
 );
 
-app.route('/historys', history);
+app.route('/historys', historys);
 
 app.get('/', (c) => {
   return c.text('Hello Hono!');
