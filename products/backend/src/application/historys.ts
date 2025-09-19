@@ -1,7 +1,7 @@
-import { insert_historydb, select_historydb_all } from '../infrastructure/historys';
-import { Bindings } from '..';
+import { insertHistoryDB, selectHistoryDBAll } from '../infrastructure/historys';
+import { Bindings } from '../domain/script';
 
-export const add_history = async (
+export const addHistory = async (
   env: Bindings,
   req_param: { id: number; from: string; to: string; amount: number }
 ) => {
@@ -11,9 +11,9 @@ export const add_history = async (
     amount: req_param.amount,
   };
 
-  return await insert_historydb(env, history);
+  return await insertHistoryDB(env, history);
 };
 
-export const get_historys = async (env: Bindings) => {
-  return await select_historydb_all(env);
+export const getHistorys = async (env: Bindings) => {
+  return await selectHistoryDBAll(env);
 };
