@@ -65,9 +65,13 @@ const Root: React.FC = () => {
   return (
     <>
       <div className={styles.container}>
-        <h1>PayCrew</h1>
+        <div className={styles.title}>
+          <h1 className={styles.title}>PayCrew</h1>
+        </div>
 
-        <p className={styles.center}>
+        {/* <img src="../../public/backgroud-sea.png" alt="" className={styles.background} /> */}
+
+        <p className={styles.description}>
           まとめ払いの際の支払いをスムーズにするアプリです。
           <br />
           名前と金額を入力して記録できます。
@@ -131,7 +135,7 @@ const Root: React.FC = () => {
                       deleteHistoryById(v.id);
                     }}
                   >
-                    削除
+                    <img src="../../public/dust-box.png" alt="削除" className={styles.dustBox} />
                   </button>
                 </div>
               ))}
