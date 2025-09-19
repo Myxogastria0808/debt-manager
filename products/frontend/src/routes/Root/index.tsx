@@ -1,7 +1,10 @@
-import { useEffect, useState, type ChangeEventHandler, type FC } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import styles from './index.module.css';
 
-const Root: FC = () => {
+const Root: React.FC = () => {
+  //const backendURL = 'http://localhost:8787';
+  const backendURL = 'https://debt-manager-api.yukiosada.work/';
+
   const [historys, setHistorys] = useState<
     {
       id: number;
@@ -10,19 +13,9 @@ const Root: FC = () => {
       amount: number;
     }[]
   >([]);
-  const [fromName, setFromName] = useState<string>('');
-  const [toName, setToName] = useState<string>('');
-  const [amount, setAmount] = useState<number | null>(null);
-
-  const fromNameHandler: ChangeEventHandler<HTMLInputElement> = ({ target }) => {
-    setFromName(target.value);
-  };
-  const toNameHandler: ChangeEventHandler<HTMLInputElement> = ({ target }) => {
-    setToName(target.value);
-  };
-  const amountHandler: ChangeEventHandler<HTMLInputElement> = ({ target }) => {
-    setAmount(Number(target.value));
-  };
+  const fromInput = useRef<HTMLInputElement>(null);
+  const toInput = useRef<HTMLInputElement>(null);
+  const amountInput = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
     getHistorys();
@@ -30,16 +23,17 @@ const Root: FC = () => {
 
   const handleSubmit: React.FormEventHandler<HTMLFormElement> = (event) => {
     event.preventDefault();
-    addHistory(fromName, toName, amount);
+    addHistory(fromInput.current!.value, toInput.current!.value, Number(amountInput.current!.value));
+    event.currentTarget.reset();
   };
 
-  const addHistory = async (fromName: string, toName: string, amount: number | null) => {
+  const addHistory = async (fromName: string, toName: string, amount: number) => {
     const data = {
       from: fromName,
       to: toName,
       amount: Number(amount),
     };
-    await fetch('https://debt-manager-api.yukiosada.work/historys', {
+    await fetch(`${backendURL}/historys`, {
       method: 'POST',
       body: JSON.stringify(data),
     });
@@ -48,19 +42,37 @@ const Root: FC = () => {
   };
 
   const getHistorys = async () => {
-    const response = await fetch('https://debt-manager-api.yukiosada.work/historys', {
+    const response = await fetch(`${backendURL}/historys`, {
       method: 'GET',
     });
 
     setHistorys(await response.json());
   };
 
+  const deleteHistoryById = async (id: number) => {
+    await fetch(`${backendURL}/historys`, {
+      method: 'DELETE',
+      body: JSON.stringify({
+        id: id,
+        from: '',
+        to: '',
+        amount: 0,
+      }),
+    });
+
+    getHistorys();
+  };
+
   return (
     <>
       <div className={styles.container}>
-        <h1>PayCrew</h1>
+        <div className={styles.title}>
+          <h1 className={styles.title}>PayCrew</h1>
+        </div>
 
-        <p className={styles.center}>
+        {/* <img src="../../public/backgroud-sea.png" alt="" className={styles.background} /> */}
+
+        <p className={styles.description}>
           まとめ払いの際の支払いをスムーズにするアプリです。
           <br />
           名前と金額を入力して記録できます。
@@ -69,38 +81,66 @@ const Root: FC = () => {
         <form id="loan-form" onSubmit={handleSubmit}>
           <div className={styles.formGroup}>
             <label>まとめて払った人の名前:</label>
-            <input type="text" value={fromName} onChange={fromNameHandler} />
+            <input type="text" ref={fromInput} />
           </div>
 
           <div className={styles.formGroup}>
             <label>返金する人の名前:</label>
-            <input type="text" value={toName} onChange={toNameHandler} />
+            <input type="text" ref={toInput} />
           </div>
 
           <div className={styles.formGroup}>
             <label>借りた金額 (円):</label>
-            <input
-              type="number"
-              id="amount"
-              name="amount"
-              min="1"
-              required
-              value={amount ?? ''}
-              onChange={amountHandler}
-            />
+            <input type="number" id="amount" min="1" required ref={amountInput} />
           </div>
 
-          <button type="submit">追加</button>
+          <button type="submit" className={styles.buttonAdd}>
+            追加
+          </button>
         </form>
+
         <div className={styles.history}>
           <h2>履歴</h2>
-          <ul className={styles.historyList}>
-            {historys.map((v, k) => (
-              <li key={k}>
-                {v.from} から {v.to} に {v.amount} 円
-              </li>
-            ))}
-          </ul>
+          <div className={styles.historyList}>
+            {historys
+              .slice()
+              .reverse()
+              .map((v) => (
+                <div className={styles.historyItem} key={v.id}>
+                  <div className={styles.historyText}>
+                    <div className={styles.historyFrom}>
+                      <div className={styles.historyFromTitle}>まとめ払いした人</div>
+                      <div className={styles.historyFromText} title={v.from}>
+                        {v.from}
+                      </div>
+                    </div>
+                    <div className={styles.historySep}>から</div>
+                    <div className={styles.historyTo}>
+                      <div className={styles.historyToTitle}>返金する人</div>
+                      <div className={styles.historyToText} title={v.to}>
+                        {v.to}
+                      </div>
+                    </div>
+                    <div className={styles.historySep}>に</div>
+                    <div className={styles.historyAmount}>
+                      <div className={styles.historyAmountTitle}>金額</div>
+                      <div className={styles.historyAmountText} title={String(v.amount)}>
+                        {v.amount}
+                      </div>
+                    </div>
+                    <div className={styles.historySep}>円</div>
+                  </div>
+                  <button
+                    className={styles.buttonDelete}
+                    onClick={async () => {
+                      deleteHistoryById(v.id);
+                    }}
+                  >
+                    <img src="../../public/dust-box.png" alt="削除" className={styles.dustBox} />
+                  </button>
+                </div>
+              ))}
+          </div>
         </div>
         <div className={styles.reminder}>
           <h2>リマインダー通知</h2>
