@@ -66,17 +66,17 @@ const Root: React.FC = () => {
   return (
     <>
       <div className={styles.container}>
-        <div className={styles.title}>
-          <h1 className={styles.title}>PayCrew</h1>
+        <div className={styles.header}>
+          <div className={styles.backgroundAlpha}>
+            <h1 className={styles.title}>PayCrew</h1>
+
+            <p className={styles.description}>
+              まとめ払いの際の支払いをスムーズにするアプリです。
+              <br />
+              名前と金額を入力して記録できます。
+            </p>
+          </div>
         </div>
-
-        {/* <img src="../../public/backgroud-sea.png" alt="" className={styles.background} /> */}
-
-        <p className={styles.description}>
-          まとめ払いの際の支払いをスムーズにするアプリです。
-          <br />
-          名前と金額を入力して記録できます。
-        </p>
 
         <form id="loan-form" onSubmit={handleSubmit}>
           <div className={styles.formGroup}>
@@ -100,8 +100,8 @@ const Root: React.FC = () => {
         </form>
 
         <div className={styles.history}>
-          <h2>履歴</h2>
-          <div className={styles.historyList}>
+          <h2>現在の状況</h2>
+          {/* <div className={styles.historyList}>
             {historys
               .slice()
               .reverse()
@@ -140,7 +140,38 @@ const Root: React.FC = () => {
                   </button>
                 </div>
               ))}
-          </div>
+          </div> */}
+
+          {/* 新しいHTML構造 */}
+          <table className={styles.historyList}>
+            <tr className={styles.historyHeader}>
+              <th className={styles.historyFromHeader}>まとめて払った人</th>
+              <th className={styles.historyToHeader}>返金する人</th>
+              <th className={styles.historyAmountHeader}>金額</th>
+              <th className={styles.historyButtonHeader}></th>
+            </tr>
+
+            {historys
+              .slice()
+              .reverse()
+              .map((v) => (
+                <tr className={styles.historyItem}>
+                  <td className={styles.historyFromText}>{v.from}</td>
+                  <td className={styles.historyToText}>{v.to}</td>
+                  <td className={styles.historyAmountText}>{v.amount}</td>
+                  <td>
+                    <button
+                      className={styles.buttonDelete}
+                      onClick={async () => {
+                        deleteHistoryById(v.id);
+                      }}
+                    >
+                      <img src="/dust-box.png" alt="削除" className={styles.dustBox} />
+                    </button>
+                  </td>
+                </tr>
+              ))}
+          </table>
         </div>
         <div className={styles.reminder}>
           <h2>リマインダー通知</h2>
