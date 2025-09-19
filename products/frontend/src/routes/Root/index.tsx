@@ -47,6 +47,20 @@ const Root: React.FC = () => {
     setHistorys(await response.json());
   };
 
+  const deleteHistoryById = async (id: number) => {
+    await fetch(`${backendURL}/historys`, {
+      method: 'DELETE',
+      body: JSON.stringify({
+        id: id,
+        from: '',
+        to: '',
+        amount: 0,
+      }),
+    });
+
+    getHistorys();
+  };
+
   return (
     <>
       <div className={styles.container}>
@@ -85,8 +99,8 @@ const Root: React.FC = () => {
             {historys
               .slice()
               .reverse()
-              .map((v, k) => (
-                <div className={styles.historyItem} key={k}>
+              .map((v) => (
+                <div className={styles.historyItem} key={v.id}>
                   <div className={styles.historyText}>
                     <div className={styles.historyFrom}>
                       <div className={styles.historyFromTitle}>まとめ払いした人</div>
@@ -110,7 +124,14 @@ const Root: React.FC = () => {
                     </div>
                     <div className={styles.historySep}>円</div>
                   </div>
-                  <button className={styles.buttonDelete}>削除</button>
+                  <button
+                    className={styles.buttonDelete}
+                    onClick={async () => {
+                      deleteHistoryById(v.id);
+                    }}
+                  >
+                    削除
+                  </button>
                 </div>
               ))}
           </div>
