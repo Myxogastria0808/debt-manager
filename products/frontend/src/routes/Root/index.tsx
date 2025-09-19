@@ -66,17 +66,15 @@ const Root: React.FC = () => {
   return (
     <>
       <div className={styles.container}>
-        <div className={styles.title}>
+        <div className={styles.header}>
           <h1 className={styles.title}>PayCrew</h1>
+
+          <p className={styles.description}>
+            まとめ払いの際の支払いをスムーズにするアプリです。
+            <br />
+            名前と金額を入力して記録できます。
+          </p>
         </div>
-
-        {/* <img src="../../public/backgroud-sea.png" alt="" className={styles.background} /> */}
-
-        <p className={styles.description}>
-          まとめ払いの際の支払いをスムーズにするアプリです。
-          <br />
-          名前と金額を入力して記録できます。
-        </p>
 
         <form id="loan-form" onSubmit={handleSubmit}>
           <div className={styles.formGroup}>

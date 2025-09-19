@@ -20,14 +20,20 @@ body {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-.title {
-  background-image: url('../../public/background-sea.png');
-  background-size: cover;
-  background-repeat: repeat;
+.header {
+  width: auto;
+  min-height: 200px;
+  padding: 40px 0;
+  background-image: url(../../public/background-sea.png);
+  background-position: bottom;
+  background-size: contain;
+  background-repeat: no-repeat;
 }
 
 .description {
+  /* color: #fff; */
   text-align: center;
+  vertical-align: middle;
   margin-bottom: 20px;
 }
 
