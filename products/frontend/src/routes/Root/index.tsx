@@ -23,6 +23,7 @@ const Root: React.FC = () => {
   const handleSubmit: React.FormEventHandler<HTMLFormElement> = (event) => {
     event.preventDefault();
     addHistory(fromInput.current!.value, toInput.current!.value, Number(amountInput.current!.value));
+    event.currentTarget.reset();
   };
 
   const addHistory = async (fromName: string, toName: string, amount: number) => {
